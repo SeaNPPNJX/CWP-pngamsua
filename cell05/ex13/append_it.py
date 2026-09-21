@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+
+import sys
+
+if len(sys.argv) < 2:
+    print("none")
+else:
+    print(*[f"{i}ism" for i in sys.argv[1:] if i.endswith("ism") == False], sep="\n")
