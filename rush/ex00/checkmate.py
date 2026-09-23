@@ -1,4 +1,4 @@
-def oversize(pos=set, size=int):
+def oversize(pos, size):
     return set([i for i in pos if i[0] >= 0 and i[1] >= 0 and i[0] < size and i[1] < size])
 
 def pawn(px, py, size):
