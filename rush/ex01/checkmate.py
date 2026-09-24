@@ -1,6 +1,6 @@
 from check_invalid_board import *
 
-def pawn(px: int, py: int, size: int):
+def pawn(px: int, py: int):
     return {(px-1, py-1), (px+1, py-1)}
 
 def bishop(px: int, py: int, size: int):
@@ -38,7 +38,7 @@ def checkmate(board: str):
             if value == "R":
                 attacks |= rook(x, y, size)
             if value == "P": 
-                attacks |= pawn(x, y, size)
+                attacks |= pawn(x, y)
             if value == "B":
                 attacks |= bishop(x, y, size)
             if value == "Q":
