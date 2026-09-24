@@ -20,7 +20,9 @@ def queen(px: int, py: int, size: int):
     return rook(px, py, size) | bishop(px,py, size)
 
 def checkmate(board: str):
-    matrix = [list(i) for i in board.splitlines()]
+    if board.count("K") != 1:
+        return print("Missing King")
+    matrix = [list(i.strip()) for i in board.splitlines()]
     size = len(matrix)
     attacks = set()
     for y, row in enumerate(matrix):

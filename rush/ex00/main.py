@@ -1,17 +1,18 @@
 from checkmate import checkmate
 
 def main():
+#     board = """\
+# R...
+# .K..
+# ..P.
+# ....\
+# """
+
     board = """\
-R...
-.K..
-..P.
-....\
+..
+.P\
 """
 
-# board = """\
-# ..
-# .K\
-# """
     try:
         checkmate(board)
         return
