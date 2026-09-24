@@ -1,4 +1,4 @@
-from check_valid_board import *
+from rush.ex01.check_invalid_board import *
 
 def oversize(pos, size: int):
     return set([i for i in pos if i[0] >= 0 and i[1] >= 0 and i[0] < size and i[1] < size])
@@ -22,8 +22,8 @@ def queen(px: int, py: int, size: int):
     return rook(px, py, size) | bishop(px,py, size)
 
 def checkmate(board: str):
-    valid, error_message = check_valid_board(board)
-    if valid:
+    invalid, error_message = check_invalid_board(board)
+    if invalid:
         return print(error_message)
 
     matrix = [list(i.strip()) for i in board.splitlines()]

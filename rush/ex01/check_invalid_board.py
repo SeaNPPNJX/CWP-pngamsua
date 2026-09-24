@@ -1,5 +1,5 @@
 
-def check_valid_board(board: str):
+def check_invalid_board(board: str):
     if board.count("K") != 1:
         return True, "Error: The numbers of king does not meet the conditions."
     
