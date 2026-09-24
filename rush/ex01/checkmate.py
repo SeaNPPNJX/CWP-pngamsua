@@ -1,4 +1,4 @@
-from rush.ex01.check_invalid_board import *
+from check_invalid_board import *
 
 def oversize(pos, size: int):
     return set([i for i in pos if i[0] >= 0 and i[1] >= 0 and i[0] < size and i[1] < size])
