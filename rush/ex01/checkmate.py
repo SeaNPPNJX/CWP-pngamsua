@@ -1,22 +1,19 @@
 from check_invalid_board import *
 
-def oversize(pos, size: int):
-    return set([i for i in pos if i[0] >= 0 and i[1] >= 0 and i[0] < size and i[1] < size])
-
 def pawn(px: int, py: int, size: int):
-    return oversize([(px-1, py-1), (px+1, py-1)], size)
+    return {(px-1, py-1), (px+1, py-1)}
 
 def bishop(px: int, py: int, size: int):
     pos = []
     for i in range(1, size):
         pos.extend([(px-i,py-i),(px+i,py+i),(px-i,py+i),(px+i,py-i)])
-    return oversize(set(pos), size)
+    return set(pos)
 
 def rook(px: int, py: int, size: int):
     pos = []
     for i in range(1, size):
         pos.extend([(px,py-i),(px-i,py),(px,py+i),(px+i,py)])
-    return oversize(set(pos), size)
+    return set(pos)
 
 def queen(px: int, py: int, size: int):
     return rook(px, py, size) | bishop(px,py, size)
@@ -30,7 +27,14 @@ def checkmate(board: str):
     size = len(matrix)
     attacks = set()
     for y, row in enumerate(matrix):
+        #0 ['R', '.', '.', '.']
+        #1 ['.', 'K', '.', '.']
+        #2 ['.', '.', 'P', '.']
+        #3 ['.', '.', '.', '.']
+        print(y, row)
         for x, value in enumerate(row):
+            #0 R, 1 ., 2 . ,3 .
+            print(x, value)
             if value == "R":
                 attacks |= rook(x, y, size)
             if value == "P": 
@@ -41,5 +45,6 @@ def checkmate(board: str):
                 attacks |= queen(x, y, size)
             if value == "K":
                 king_pos = (x, y)
+        print(attacks)
     print("Success" if king_pos in attacks else "Fail")
 
