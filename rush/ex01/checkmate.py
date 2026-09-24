@@ -26,7 +26,7 @@ def checkmate(board: str):
     if valid:
         return print(error_message)
 
-    matrix = [list(i) for i in board.splitlines()]
+    matrix = [list(i.strip()) for i in board.splitlines()]
     size = len(matrix)
     attacks = set()
     for y, row in enumerate(matrix):
