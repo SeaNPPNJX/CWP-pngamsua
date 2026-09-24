@@ -53,6 +53,11 @@ def queen(px, py, size, board):
 
 def checkmate(board: str):
     matrix = [list(i.strip()) for i in board.splitlines()]
+    if board.count("K") != 1:
+        return print("Error")
+    for i in matrix:
+        if len(i) != len(matrix):
+            return print("Error")
     size = len(matrix)
     attacks = set()
     for y, row in enumerate(matrix):
